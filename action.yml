@@ -1,0 +1,35 @@
+name: Languages card
+description: SVG card with the languages of all your repositories, private ones included.
+author: ivanvilarinom
+branding:
+  icon: bar-chart-2
+  color: blue
+
+inputs:
+  token:
+    description: Fine-grained token with access to all your repositories.
+    required: true
+  path:
+    description: Where to write the SVG.
+    default: languages.svg
+  commit:
+    description: Commit and push the SVG when it changes.
+    default: "true"
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: python3 "$GITHUB_ACTION_PATH/languages.py" "$CARD_PATH"
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        CARD_PATH: ${{ inputs.path }}
+    - if: inputs.commit == 'true'
+      shell: bash
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add "$CARD_PATH"
+        git diff --cached --quiet || (git commit -m "Update languages card" && git push)
+      env:
+        CARD_PATH: ${{ inputs.path }}
