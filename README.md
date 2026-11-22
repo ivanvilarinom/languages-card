@@ -1,5 +1,9 @@
 # languages-card
 
+[![Used by](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fivanvilarinom%2Flanguages-card%2Fmain%2Fstats.json&style=flat-square)](https://github.com/search?q=%22ivanvilarinom%2Flanguages-card%40%22+path%3A.github%2Fworkflows&type=code)
+[![Stars](https://img.shields.io/github/stars/ivanvilarinom/languages-card?style=flat-square&color=0969da)](https://github.com/ivanvilarinom/languages-card/stargazers)
+[![License](https://img.shields.io/github/license/ivanvilarinom/languages-card?style=flat-square&color=0969da)](LICENSE)
+
 A languages card for your GitHub profile that also counts your private repositories.
 
 <img src="example.svg" width="600" alt="Example card">
